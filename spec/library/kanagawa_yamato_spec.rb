@@ -31,12 +31,12 @@ describe Library::KanagawaYamato::Client do
       borrowing_list = @client.scrape_borrowing(@source_count_20_under)
 
       expect(borrowing_list[0].title).to eq 'エジソン　オールカラーまんがで読む知っておくべき世界の偉人 18　イ スジョン／文　岩崎書店'
-      expect(borrowing_list[0].date_of_issue).to eq '2016/07/09'
-      expect(borrowing_list[0].date_of_return).to eq '2016/08/06'
+      expect(borrowing_list[0].date_of_issue.to_s).to eq '2016-07-09'
+      expect(borrowing_list[0].date_of_return.to_s).to eq '2016-08-06'
 
       expect(borrowing_list[4].title).to eq 'へんしんクイズ　新しいえほん　あきやま ただし／作・絵　金の星社'
-      expect(borrowing_list[4].date_of_issue).to eq '2016/07/31'
-      expect(borrowing_list[4].date_of_return).to eq '2016/08/14'
+      expect(borrowing_list[4].date_of_issue.to_s).to eq '2016-07-31'
+      expect(borrowing_list[4].date_of_return.to_s).to eq '2016-08-14'
     end
   end
 

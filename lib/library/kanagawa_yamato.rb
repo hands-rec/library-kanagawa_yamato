@@ -77,8 +77,8 @@ module Library
     attr_accessor :title, :date_of_issue, :date_of_return
     def initialize(title:, date_of_issue:, date_of_return:)
       @title = title
-      @date_of_issue = date_of_issue
-      @date_of_return = date_of_return
+      @date_of_issue = Date.parse(date_of_issue)
+      @date_of_return = Date.parse(date_of_return)
     end
   end
   
