@@ -10,7 +10,7 @@ require "pp"
 
 Capybara.current_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
-Capybara.app_host = ''
+Capybara.app_host = 'https://library.city.yamato.kanagawa.jp/'
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
@@ -27,7 +27,6 @@ module Library
       include Capybara::DSL
 
       def initialize(cardnumber, password)
-        Capybara.app_host = 'https://library.city.yamato.kanagawa.jp/'
         @cardnumber = cardnumber
         @password = password
         @borrow_list = nil
