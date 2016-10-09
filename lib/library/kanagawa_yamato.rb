@@ -4,22 +4,22 @@ require "capybara"
 require "capybara/dsl"
 require "capybara/poltergeist"
 require "nokogiri"
-require "selenium-webdriver"
+#require "selenium-webdriver"
 require "net/http"
 require "pp"
 
-#Capybara.current_driver = :poltergeist
-#Capybara.javascript_driver = :poltergeist
-#Capybara.app_host = ''
-#
-#Capybara.register_driver :poltergeist do |app|
-#  Capybara::Poltergeist::Driver.new(
-#    app,
-#    :js_errors => true,
-#    :timeout => 60,
-#  )
-#end
-Capybara.current_driver = :selenium
+Capybara.current_driver = :poltergeist
+Capybara.javascript_driver = :poltergeist
+Capybara.app_host = ''
+
+Capybara.register_driver :poltergeist do |app|
+  Capybara::Poltergeist::Driver.new(
+    app,
+    :js_errors => true,
+    :timeout => 60,
+  )
+end
+#Capybara.current_driver = :selenium
 
 module Library
   module KanagawaYamato
@@ -57,10 +57,10 @@ module Library
 
       def login
         visit('/licsxp-opac/WOpacMnuTopInitAction.do?WebLinkFlag=1&moveToGamenId=mylibrary')
-        return unless find_by_id('cardnumber')
+        return unless find_by_id('usrcardnumber')
 
         sleep_rand
-        fill_in('cardnumber', :with => @cardnumber)
+        fill_in('usrcardnumber', :with => @cardnumber)
         sleep_rand
         fill_in('password', :with => @password)
         sleep_rand
