@@ -27,6 +27,7 @@ module Library
       include Capybara::DSL
 
       def initialize(cardnumber, password)
+        logout if logined?
         @cardnumber = cardnumber
         @password = password
         @borrow_list = nil
@@ -52,6 +53,19 @@ module Library
           )
         end
         @borrow_list
+      end
+
+      def logined?
+        begin
+          find_by_id('logout')
+        rescue Capybara::ElementNotFound => e
+          return false
+        end
+        true
+      end
+
+      def logout
+        click_link('logout')
       end
 
       def login
