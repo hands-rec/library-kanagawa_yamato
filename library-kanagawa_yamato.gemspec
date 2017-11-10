@@ -30,7 +30,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "selenium-webdriver"
-  spec.add_dependency "rack", "~> 1.x"
+  spec.add_dependency "rack", "~> 2.x"
   spec.add_dependency "poltergeist"
   spec.add_dependency "capybara"
   spec.add_dependency "nokogiri"
