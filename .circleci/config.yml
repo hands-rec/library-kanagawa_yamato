@@ -5,13 +5,13 @@ jobs:
       - image: circleci/ruby:2.4.1-node-browsers
     steps:
       - checkout
-#      - restore_cache:
-#        key: v1-bundle-{{ checksum "Gemfile.lock" }}
+      - restore_cache:
+          key: v1-bundle-{{ checksum "library-kanagawa_yamato.gemspec" }}
       - run: bundle install --path vendor/bundle
-#      - save_cache:
-#        key: v1-bundle-{{ checksum "Gemfile.lock" }}
-#        paths:
-#          - vendor/bundle
+      - save_cache:
+          key: v1-bundle-{{ checksum "library-kanagawa_yamato.gemspec" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Rspec
           command: bundle exec rspec --format progress
