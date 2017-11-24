@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/2.4.1-node-browsers
+    steps:
+      - checkout
+      - restore_cache:
+        key: v1-bundle-{{ checksum "Gemfile.lock" }}
+      - run: bundle install --path vendor/bundle
+      - save_cache:
+        key: v1-bundle-{{ checksum "Gemfile.lock" }}
+        paths:
+          - vendor/bundle
+      - run:
+        name: Rspec
+        command: bundle exec rspec --format progress
