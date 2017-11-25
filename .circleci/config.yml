@@ -13,5 +13,8 @@ jobs:
           paths:
             - vendor/bundle
       - run:
+          name: RuboCop
+          command: bundle exec rubocop
+      - run:
           name: Rspec
           command: bundle exec rspec --format progress
