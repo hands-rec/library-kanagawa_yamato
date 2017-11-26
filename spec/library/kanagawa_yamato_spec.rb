@@ -9,12 +9,12 @@ end
 
 describe Library::KanagawaYamato::Client do
   
-#describe '#borrowing' do
-#  it 'success' do
-#    c = Library::KanagawaYamato::Client.new('', '')
-#    c.borrowing
+#  describe '#borrowing' do
+#    it 'success' do
+#      c = Library::KanagawaYamato::Client.new('', '')
+#      c.borrowing
+#    end
 #  end
-#end
 
   describe '#scrape_borrowing' do
     before :each do
