@@ -10,7 +10,7 @@ require "pp"
 
 Capybara.current_driver = :poltergeist
 Capybara.javascript_driver = :poltergeist
-Capybara.app_host = 'https://library.city.yamato.kanagawa.jp/'
+Capybara.app_host = 'https://library.city.yamato.kanagawa.jp'
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
